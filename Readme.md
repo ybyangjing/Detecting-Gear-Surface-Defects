@@ -1,4 +1,4 @@
-EXOERIMENTAL PROCEDURE
+If you use this code ,Please conference "Detecting Gear Surface Defects Using Background-weakening Method and Convolutional Neural Network"
 1. Experiment preparation：
 	Resize the four types of images into 416*416；
 	The data image is filtered twice according to the algorithm given in the paper；
@@ -37,11 +37,12 @@ backup = backup
 	Modify data/voc.name to be the tag name of the sample set
 break，lack，scratch，normal
 	Modify the filters = 3*(class+4+1) in cfg/yolov3-voc.cfg
-2. Yolo training
+
+2 Yolo training
 	Use kmeans algorithm to set K=9 to find 9 suitable auchor；
 	Find the darknet/cfg/yolov3.cfg file and change the auchor in it to the optimal auchor obtained by kmeans；
 	Return to the darknet root for model training
-Start training
+	Start training
 ./darknet detector train cfg/voc.data cfg/yolov3-voc.cfg darknet53.conv.74 -gpus 0,1
-Detect
+	Detect
 ./darknet detect cfg/yolov3-voc.cfg weights/yolov3.weights 
